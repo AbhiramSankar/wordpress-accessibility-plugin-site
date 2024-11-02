@@ -1,0 +1,126 @@
+/* Control button styling */
+/* .ah-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.ah-btn {
+    padding: 8px;
+    margin: 5px;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+} */
+
+/* High contrast mode */
+/* body.high-contrast {
+    background-color: #000;
+    color: #fff;
+}
+
+body.high-contrast a {
+    color: #0ff;
+} */
+
+/* Font resizing */
+/* body.small-font {
+    font-size: 90%;
+}
+
+body.large-font {
+    font-size: 120%;
+} */
+/* Base button styling */
+/* #accessibility-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+}
+.accessibility-button {
+    background-color: #007bff;
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 5px 10px;
+    margin: 2px;
+    font-size: 16px;
+    cursor: pointer; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+.accessibility-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.accessibility-button:active {
+    transform: translateY(1px); 
+}
+
+.accessibility-button:focus {
+    outline: 2px solid #ffcc00;
+    outline-offset: 2px; 
+}
+ */
+
+
+/* Base button styling */
+#accessibility-button{
+    background-color: #539be9;
+    color: black;
+    border-bottom: 5px solid black;
+}
+.accessibility-button {
+    width: 100%;
+    background-color: #539be9; /* Primary color */
+    color: white; /* Text color */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Padding */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.5s ease; /* Smooth transitions */
+}
+
+/* Button hover effect */
+.accessibility-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slightly lift the button */
+}
+
+/* Button active effect */
+.accessibility-button:active {
+    transform: translateY(1px); /* Slightly lower the button when clicked */
+}
+
+/* Accessibility controls fixed position */
+.accessibility-controls {
+    position: fixed; /* Fixed position */
+    top: 50px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+/* Accessibility dropdown */
+.accessibility-dropdown {
+    position: relative; /* Positioning context for dropdown */
+}
+
+/* Sub-button container */
+.accessibility-sub-buttons {
+    display: none; /* Hide sub-buttons by default */
+    position: absolute; /* Position them relative to the dropdown */
+    background-color: transparent; /* Background color for dropdown */
+    z-index: 1000; /* Ensure dropdown appears above other elements */
+}
+
+/* Show the dropdown when the button is clicked */
+.accessibility-dropdown.open .accessibility-sub-buttons {
+    display: block; /* Show sub-buttons when dropdown is open */
+}
