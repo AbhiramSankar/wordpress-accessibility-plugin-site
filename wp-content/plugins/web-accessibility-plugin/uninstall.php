@@ -1,0 +1,2 @@
+<?php
+//Uninstall for plugin

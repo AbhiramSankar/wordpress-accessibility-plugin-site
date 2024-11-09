@@ -1,0 +1,74 @@
+.accessibility-controls {
+  position: fixed;
+  z-index: 9999;
+  bottom: 20px;
+  left: 20px;
+}
+
+.accessibility-button {
+  border-radius: 1000px;
+  height: 4rem;
+  width: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5em;
+}
+
+.accessibility-menu {
+  display: none;
+  overflow: hidden;
+  background-color: #007acc;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  padding: 1em;
+}
+
+.accessibility-menu > div:not(:last-child) {
+  border-bottom: 1px solid #ffffff;
+}
+
+.font-size-control {
+    padding-bottom: 1em;
+}
+
+.font-size-control > .control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.font-size-control > .control * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+}
+
+.font-size-control > .control svg {
+  width: 1em;
+}
+
+.font-size-control > .control > button {
+  border: none;
+  background-color: transparent;
+}
+
+.color-control {
+  padding: 1em 0;
+}
+
+.color-control > .options {
+  padding-left: 1em;
+}
+
+.color-control > .options > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.grayscale_filter {
+  filter: grayscale(100%);
+}

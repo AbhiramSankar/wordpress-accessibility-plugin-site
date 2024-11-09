@@ -6,14 +6,14 @@ Tags: Block, Editor, Gutenberg, Gutenberg Blocks, Page Builder, WordPress Blocks
 Requires at least: 4.9
 Tested up to: 6.6
 Requires PHP: 5.3
-Stable tag: 3.2.5.2
+Stable tag: 3.2.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
 == Description ==
 
-## Effortless Website Building, and One-Click Magic
+## Effortless Drag & Drop Website Building, and Starter Templates Imports, No Coding Needed
 
 Are you ready to elevate your website without the hassle of coding? Look no further – <strong>[BlockSpare](https://blockspare.com)</strong> is here to redefine your digital journey. Our primary focus is clear: <strong>Build Your Blog, News, Magazine, and Agency Websites with Expert-Designed Templates. One Click Import – No Coding Skills Required!</strong>
 
