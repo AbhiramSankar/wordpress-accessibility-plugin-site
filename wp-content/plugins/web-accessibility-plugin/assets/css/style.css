@@ -107,7 +107,7 @@
   align-items: center;
 }
 
-.select2-results {
+.accessibility-controls .select2-results {
   background-color: #ffffff !important;
 }
 
@@ -151,3 +151,10 @@
   -webkit-filter: url("../svg/colorBlindFilters.svg#achromatomaly");
   filter: url("../svg/colorBlindFilters.svg#achromatomaly");
 } */
+@media only screen and (max-width: 600px) {
+  .accessibility-menu {
+    max-height: 500px;
+    width: 90%;
+    overflow: scroll;
+  }
+}
