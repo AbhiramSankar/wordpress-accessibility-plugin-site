@@ -1,6 +1,6 @@
 .accessibility-controls {
   position: fixed;
-  z-index: 9999;
+  z-index: 999;
   bottom: 20px;
   left: 20px;
 }
@@ -60,19 +60,33 @@
   padding: 1em 0;
 }
 
-.color-control > .options {
-  padding-left: 1em;
-}
-
-.color-control > .options > div {
+.color-control > .options,
+.text-to-speech-control > .tts-options {
   display: flex;
   align-items: center;
-  justify-content: center;
-  /* gap: 0.1em; */
+  justify-content: space-between;
   flex-direction: column;
+  justify-content: center;
+  gap: 0.5em;
 }
 
-.color-control > .options > button {
+.color-control > .options > div,
+.text-to-speech-control > .tts-options > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.color-control > .options > #color-blind-wrapper,
+.text-to-speech-control > .tts-options > #tss-voice {
+  gap: 0.5em;
+}
+
+.color-control > .options > button,
+.text-to-speech-control > .tts-options > button {
   margin: 0.5em auto 0 auto;
   display: flex;
   align-items: center;
@@ -81,14 +95,59 @@
   border-radius: 25px;
 }
 
-.color-control > .options > button svg {
+.color-control > .options > button svg,
+.text-to-speech-control > .tts-options > button svg {
   width: 1em;
 }
 
-.text-to-speech-control {
+.text-to-speech-control > .tts-toggle {
   padding-top: 1em;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-    
+
+.select2-results {
+  background-color: #ffffff !important;
+}
+
+/* Color Blind Filter Classes */
+/* .protanopia {
+  -webkit-filter: url("../svg/colorBlindFilters.svg#protanopia");
+  filter: url("../svg/colorBlindFilters.svg#protanopia");
+}
+
+.protanomaly {
+  -webkit-filter: url("../svg/colorBlindFilters.svg#protanomaly");
+  filter: url("../svg/colorBlindFilters.svg#protanomaly");
+}
+
+.deuteranopia {
+  -webkit-filter: url("../svg/colorBlindFilters.svg#deuteranopia");
+  filter: url("../svg/colorBlindFilters.svg#deuteranopia");
+}
+
+.deuteranomaly {
+  -webkit-filter: url("../svg/colorBlindFilters.svg#deuteranomaly");
+  filter: url("../svg/colorBlindFilters.svg#deuteranomaly");
+}
+
+.tritanopia {
+  -webkit-filter: url("../svg/colorBlindFilters.svg#tritanopia");
+  filter: url("../svg/colorBlindFilters.svg#tritanopia");
+}
+
+.tritanomaly {
+  -webkit-filter: url("../svg/colorBlindFilters.svg#tritanomaly");
+  filter: url("../svg/colorBlindFilters.svg#tritanomaly");
+}
+
+.achromatopsia {
+  -webkit-filter: url("../svg/colorBlindFilters.svg#achromatopsia");
+  filter: url("../svg/colorBlindFilters.svg#achromatopsia");
+}
+
+.achromatomaly {
+  -webkit-filter: url("../svg/colorBlindFilters.svg#achromatomaly");
+  filter: url("../svg/colorBlindFilters.svg#achromatomaly");
+} */

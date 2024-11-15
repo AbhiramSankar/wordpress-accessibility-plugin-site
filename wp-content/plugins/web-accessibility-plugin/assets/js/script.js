@@ -2,10 +2,16 @@ const $ = jQuery;
 
 let globalVal = {
   fontSize: 0,
-  grayscale: 0,
-  sepia: 0,
-  contrast: 1,
+  colorAndContrast: {
+    filter: "none",
+    contrast: 1,
+  },
   tts: false,
+  ttsSetting: {
+    voice: 0,
+    speed: 1,
+    pitch: 1,
+  },
 };
 
 $(() => {
@@ -61,46 +67,54 @@ $(() => {
   });
 
   //Color Mode
+  $("#color-blind-filters").select2({
+    dropdownParent: $("#color-blind-wrapper"),
+    width: "100%",
+    minimumResultsForSearch: -1,
+  });
+
+  $("#color-blind-filters").on("select2:select", function () {
+    // console.log(this.value);
+    globalVal.colorAndContrast.filter = this.value;
+    $("html").css({
+      filter: `contrast(${globalVal.colorAndContrast.contrast}) url("wp-content/plugins/web-accessibility-plugin/assets/svg/colorBlindFilters.svg#${globalVal.colorAndContrast.filter}")`,
+      "webkit-filter": `contrast(${globalVal.colorAndContrast.contrast}) url("wp-content/plugins/web-accessibility-plugin/assets/svg/colorBlindFilters.svg#${globalVal.colorAndContrast.filter}")`,
+    });
+  });
+
   $("input[name='color-mode']").on("change", function () {
-    if (this.id == "grayscale") {
-      globalVal.grayscale = this.value / 100;
-    } else if (this.id == "sepia") {
-      globalVal.sepia = this.value / 100;
-    } else if (this.id == "contrast") {
-      globalVal.contrast = 1 + this.value / 100;
-    }
+    // if (this.id == "grayscale") {
+    //   globalVal.grayscale = this.value / 100;
+    // } else if (this.id == "sepia") {
+    //   globalVal.sepia = this.value / 100;
+    // } else if (this.id == "contrast") {
+    globalVal.colorAndContrast.contrast = 1 + this.value / 100;
+    // }
     // console.log(this.id, this.value, globalVal);
     $("html").css({
-      filter: `grayscale(${globalVal.grayscale}) contrast(${globalVal.contrast}) sepia(${globalVal.sepia})`,
+      filter: `contrast(${globalVal.colorAndContrast.contrast}) url("wp-content/plugins/web-accessibility-plugin/assets/svg/colorBlindFilters.svg#${globalVal.colorAndContrast.filter}")`,
+      "webkit-filter": `contrast(${globalVal.colorAndContrast.contrast}) url("wp-content/plugins/web-accessibility-plugin/assets/svg/colorBlindFilters.svg#${globalVal.colorAndContrast.filter}")`,
     });
   });
 
   //Reset Color Mode
   $(".color-control > .options > button").on("click", () => {
-    globalVal.grayscale = 0;
-    globalVal.sepia = 0;
     globalVal.contrast = 1;
     $("html").css({
-      filter: "grayscale(0) contrast(1) sepia(0)",
+      filter: "contrast(1)",
     });
     $("input[name='color-mode']").val(0);
   });
 
   //TTS Setting
   function handleMouseEnter(event) {
-    $().articulate("stop");
     // console.log(1, event.target)
     let element = $(event.target);
     if (element.is(":visible") && !element.is(":hidden")) {
       if (element.is("input") || element.is("textarea")) {
-        console.log(element);
+        // console.log(element);
         $("body").keydown((e) => {
-          if (
-            e.ctrlKey &&
-            e.altKey &&
-            e.key === "s" &&
-            element.is(":focus")
-          ) {
+          if (e.ctrlKey && e.altKey && e.key === "s" && element.is(":focus")) {
             ttsEngine(element.val());
           }
         });
@@ -123,14 +137,52 @@ $(() => {
     );
   }
 
+  var voicesData = [];
+  window.speechSynthesis.onvoiceschanged = function () {
+    let voicesList = window.speechSynthesis.getVoices();
+    voicesList.forEach((voice, index) => {
+      voicesData.push({ id: index, text: voice.name });
+    });
+    $("#tss-voice").select2({
+      data: voicesData,
+      dropdownParent: $("#tts-voice-wrapper"),
+      width: "100%",
+      minimumResultsForSearch: -1,
+    });
+  };
+  $("#tss-voice").on("select2:select", function () {
+    globalVal.ttsSetting.voice = this.value;
+  });
+
+  $("input[name='tss-option']").on("change", function () {
+    if(this.id == "speed"){
+      globalVal.ttsSetting.speed = this.value;
+    }
+    if(this.id == "pitch"){
+      globalVal.ttsSetting.pitch = this.value;
+    }
+    console.log(globalVal.ttsSetting)
+  })
+
   function ttsEngine(text) {
     speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(text);
     const voices = speechSynthesis.getVoices();
-    utterance.voice = voices[0]; // Choose a specific voice
+    utterance.voice = voices[globalVal.ttsSetting.voice]; // Choose a specific voice
+    utterance.pitch = globalVal.ttsSetting.pitch;
+    utterance.rate = globalVal.ttsSetting.speed;
     // Speak the text
     speechSynthesis.speak(utterance);
   }
+
+  $(".text-to-speech-control > .tts-options > button").on("click", () => {
+    globalVal.ttsSetting.pitch = 1;
+    globalVal.ttsSetting.speed = 1;
+    globalVal.ttsSetting.voice = 0;
+    $("input[name='tss-option']").val(1);
+    $("#tss-voice").val(0)
+    $('#tss-voice').trigger('change');
+  });
 
   $("input[name='tts']").on("change", function () {
     if ($(this).is(":checked")) {

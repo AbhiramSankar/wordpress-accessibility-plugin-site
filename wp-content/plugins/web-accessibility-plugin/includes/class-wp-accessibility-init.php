@@ -27,21 +27,27 @@ class WPAccessibilityInit
                         </div>
                     </div>
                     <div class="color-control">
-                        <div><strong>Change Color Mode</strong></div>
+                        <div><strong>Change Color Mode and Contrast</strong></div>
                         <div class="options">
-                            <div>
-                                <span>Grayscale</span>
-                                <input type="range" id="grayscale" name="color-mode" value="0"/>
+                            <div id="color-blind-wrapper">
+                                <span>Color Mode</span>
+                                <select name="color-blind-filters" id="color-blind-filters">
+                                    <option value="none">None</option>
+                                    <option value="protanopia">Protanopia</option>
+                                    <option value="deuteranopia">Deuteranopia</option>
+                                    <option value="tritanopia">Tritanopia</option>
+                                    <option value="protanomaly">Protanomaly</option>
+                                    <option value="deuteranomaly">Deuteranomaly</option>
+                                    <option value="tritanomaly">Tritanomaly</option>
+                                    <option value="achromatopsia">Achromatopsia (Grayscale)</option>
+                                    <option value="achromatomaly">Achromatomaly</option>
+                                </select>
+                            </div>
+                           <!--<div>
+                                <span>None</span>
+                                <input type="radio" id="normal" name="color-mode"/>
                             </div>
                             <div>
-                                <span>Sepia</span>
-                                <input type="range" id="sepia" name="color-mode" value="0"/>
-                            </div>
-                            <div>
-                                <span>Constrast</span>
-                                <input type="range" id="contrast" name="color-mode" value="0"/>
-                            </div>
-                            <!-- <div>
                                 <span>Protanopia</span>
                                 <input type="radio" id="protanopia" name="color-mode"/>
                             </div>
@@ -52,8 +58,39 @@ class WPAccessibilityInit
                             <div>
                                 <span>Tritanopia</span>
                                 <input type="radio" id="tritanopia" name="color-mode"/>
-                            </div> -->
-
+                            </div>
+                            <div>
+                                <span>Protanomaly</span>
+                                <input type="radio" id="protanomaly" name="color-mode"/>
+                            </div>
+                            <div>
+                                <span>Deuteranomaly</span>
+                                <input type="radio" id="deuteranomaly" name="color-mode"/>
+                            </div>
+                            <div>
+                                <span>Tritanomaly</span>
+                                <input type="radio" id="tritanomaly" name="color-mode"/>
+                            </div>
+                            <div>
+                                <span>Achromatopsia (Grayscale)</span>
+                                <input type="radio" id="tritanomaly" name="color-mode"/>
+                            </div>
+                            <div>
+                                <span>Achromatomaly</span>
+                                <input type="radio" id="tritanomaly" name="color-mode"/>
+                            </div>
+                            <div>
+                                <span>Grayscale</span>
+                                <input type="range" id="grayscale" name="color-mode" value="0"/>
+                            </div>
+                            <div>
+                                <span>Sepia</span>
+                                <input type="range" id="sepia" name="color-mode" value="0"/>
+                            </div>-->
+                            <div class="contrast-control">
+                                <span>Constrast</span>
+                                <input type="range" id="contrast" name="color-mode" value="0"/>
+                            </div>
                             <button class="reset">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M386.3 160L336 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l128 0c17.7 0 32-14.3 32-32l0-128c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg>    
                                 <span>Reset</span>
@@ -61,8 +98,29 @@ class WPAccessibilityInit
                         </div>
                     </div>
                     <div class="text-to-speech-control">
-                        <div><strong>Enable TTS</strong></div>
-                        <input type="checkbox" name="tts" id="tts"/>
+                        <div class="tts-toggle">
+                            <div><strong>Enable TTS</strong></div>
+                            <input type="checkbox" name="tts" id="tts"/>
+                        </div>
+                        <div class="tts-options">
+                            <div id="tts-voice-wrapper">
+                                <span>Voice</span>
+                                <select name="tss-voice" id="tss-voice">
+                                </select>
+                            </div>
+                            <div>
+                                <span>Speed</span>
+                                <input type="range" id="speed" min="0.1" max="2" name="tss-option" step="0.01" value="1"/>
+                            </div>
+                            <div>
+                                <span>Pitch</span>
+                                <input type="range" id="pitch" min="0.1" max="2" name="tss-option" step="0.01" value="1"/>
+                            </div>
+                            <button class="reset">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M386.3 160L336 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l128 0c17.7 0 32-14.3 32-32l0-128c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"/></svg>    
+                                <span>Reset</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <button id="accessibility-button" class="accessibility-button">
@@ -75,8 +133,10 @@ class WPAccessibilityInit
     public function enqueue_scripts()
     {
         wp_enqueue_style('accessibility-style', PLUGIN_URL . '/assets/css/style.css');
+        wp_enqueue_style('select2-style', PLUGIN_URL . '/assets/css/select2.min.css');
         wp_enqueue_script('accessibility-script', PLUGIN_URL . '/assets/js/script.js', array('jquery'), null, true);
-        wp_enqueue_script('articulate-script', PLUGIN_URL . '/assets/js/articulate.min.js', array('jquery'), null, true);
+        wp_enqueue_script('select2-script', PLUGIN_URL . '/assets/js/select2.min.js', array('jquery'), null, true);
+        // wp_enqueue_script('articulate-script', PLUGIN_URL . '/assets/js/articulate.min.js', array('jquery'), null, true);
     }
 }
 
