@@ -119,7 +119,7 @@ $(() => {
           }
         });
       } else if (element.is("p")) {
-        element.articulate("speak");
+        ttsEngine(element.text());
       } else if (element.is("img") || element.is("video")) {
         ttsEngine(element.attr("alt"));
       } else {
