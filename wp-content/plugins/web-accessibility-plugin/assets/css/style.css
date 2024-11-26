@@ -5,6 +5,19 @@
   left: 20px;
 }
 
+.admin-style {
+  font-size: 1.25em;
+  font-family: "Open Sans", sans-serif;
+}
+
+.admin-style .head{
+  margin-bottom: 1em;
+}
+
+#adminmenuwrap {
+  z-index: 998;
+}
+
 .accessibility-button {
   border-radius: 1000px;
   height: 4rem;
@@ -13,6 +26,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 0.5em;
+  background-color: #007acc;
 }
 
 .accessibility-menu {
@@ -80,6 +94,11 @@
   width: 100%;
 }
 
+.admin-style .color-control > .options > div,
+.admin-style .text-to-speech-control > .tts-options > div {
+  gap: 0.5em;
+}
+
 .color-control > .options > #color-blind-wrapper,
 .text-to-speech-control > .tts-options > #tss-voice {
   gap: 0.5em;
@@ -93,6 +112,11 @@
   justify-content: center;
   gap: 0.5em;
   border-radius: 25px;
+  background-color: #007acc;
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 1px solid #007acc;
 }
 
 .color-control > .options > button svg,
@@ -109,6 +133,10 @@
 
 .accessibility-controls .select2-results {
   background-color: #ffffff !important;
+}
+
+.admin-style input[type="range"] {
+  width: 100%;
 }
 
 /* Color Blind Filter Classes */
